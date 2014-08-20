@@ -15,23 +15,45 @@
 \maketitle
  
 \section{Introduction}
+The smallest Higgs coupling directly observable at the LHC is $H\rightarrow \mu \mu$. An analysis, looking for this channel, has already been run on data received from the 8 TeV run of the LHC. This analysis reported an observed limit of 12 times the standard model \cite{hmmPap} we hope to improve upon this analysis for the next run of the LHC at 13 TeV \cite{hmmAN}. 
+
+The current analysis optimized a category for the Vector Boson Fusion (VBF) channel and included, but did not optimize, an associated production with a vector boson channel (VH). In order to improve upon this analysis, We looked into optimizing the VH channel---where $H\rightarrow \mu \mu$ and $V\rightarrow jj$--- for 8 TeV data, altering the background fitting in the current analysis, and creating an analysis with these changes to run on simulated 13 TeV data.
 \section{Data Samples and Trigger}
 \section{Muon and Jet Object Definitions}
 \section{VH Selection Criteria}
+\subsection{Introduction}
+We began improving the $H \rightarrow \mu \mu$ analysis by creating and optimizing additional selection criteria in the VH category. Since all of categories in the current analysis were looking at $H \rightarrow \mu \mu$, we kept the same dimuon selection for VH. The current analysis selected jets with $p_{T}, \eta,$ and mass values expected in the VBF channel, but in VH the jets originated from the vector boson. Therefore we altered the jet selection criteria in the VH category to specifically look for $V \rightarrow \j \j$.
+
+The biggest background contributors in the VH channel are Drell Yan ($DY$) and top quark decays ($t\overline{t}$), so our ultimate goal, with the jet selection, is to optimize the VH signal over these two background contributors.
 \subsection{Basic Jet Selection Criteria}
+In the VBF channel, jets are predicted to have a high $p_{T}$ and a more forward position in the detector (i.e. high $\eta$). Comparatively, jets in the VH channel are predicted to have a lower $p_{T}$ and a lower $\eta$. Therefore, we decided to investigate lowering our $p_{t}$ and $\eta$ criteria.
 \subsection{Dijet Invariant Mass}
+We decided to add an additional selection criteria for Dijet Invariant mass. Since $V \rightarrow jj$, we expect that the dijet mass should be the same as the mass of the vector boson.
 \subsection{Transverse Angle Between Higgs and Vector Boson}
+Since we are looking at associated production of a Higgs and a Vector boson, we expect that they will travel in opposite direction within the detector. Therefore we decided to create a criterion based on the angle between $H$ and $V$. In order to accomplish this, we calculated the direction that $H$ was traveling based off of the dimuon pair and we calculated the direction that the $V$ was traveling based off of the dijet pair. 
 \subsection{Missing Transverse Momentum}
+In the detector, the sum of the transverse momentum of all of the particles should be zero, but, due to measurement uncertainties and undetected particles, this is rarely the case. $DY$ and $t\overline{t}$ are more likely to have a larger amount of missing transverse momentum ($p_{T}^{miss}$) than the signal events. In the current analysis a $p_{T}^{miss}$ of 40 GeV is used as an upper limit.
 \subsection{Dimuon Transverse Momentum}
+The Transverse Dimuon Momentum ($p_{T}^{\mu \mu}$) is a vector sum of the individual muon $p_{T}$'s. We predicted that our signal events should have a longer tail than the $DY$ events.
 \section{VH Analysis Optimization 1 (for 8 TeV Simulated data)}
 \subsection{Introduction}
+We began our optimization of the VH category by applying the VH selection criteria in an analysis on 8 TeV simulated data. In order to determine how effective our selection was, we used a statistical significance estimate $\frac{S}{\sqrt{B}}$ (Where $S$ is the signal and $B$ is the background). This estimate is based off of <Blank> because <blank> therefore allowing us to estimate how large our signal is compared to the background. In between selections, we took the ratio $\frac{\frac{S_{1}}{S_{0}}}{\sqrt{\frac{B_{1}}{B_{0}}}}$ (Where $S_{0}$ and $B_{0}$ are the signal and background events before the selection and $S_{1}$ and $B_{1}$ are the signal and background events after the selection). A ratio value larger than one signifies an improvement in the signal relative to the background.
 \subsection{Selection Optimization}
+In our selection optimization, all iterations of the simulated $VH$ channel had the dimuon selection as a precondition. From here, we optimized the basic jet selection criteria. In our optimization of the Jet $p_{T}$ we found that a lower limit of 25 GeV/c was the best. This limit has $\frac{S}{\sqrt{B}}$ = 1.054 when compared to an initial jet $p_{T}$ lower limit of 20 GeV/c. However, due to an expected increase in detector uncertainties as the collision energy increases to 13 TeV, we decided that the jet $p_{T}$ lower limit had to be no less than 30 GeV/c. We found that a lower limit of 30 GeV/c, which has $\frac{S}{\sqrt{B}}$ = 0.92 when compared to the initial jet $p_{T}$ limit of 20 GeV/c, was better than any of the higher limits. 
+
+After applying a Jet $p_{T}$ of 30 GeV/c to the $VH$ category, we began investigating Jet $\eta$. 
+<Multiple plots for each selection>
+<Table with S/sqrtB ratio values>
 \subsection{Choosing Correct Dijet}
+In the VBF category, selection took place on the two highest $p_{T}$ jets. Similarly, we started off using the two highest $p_{T}$ jets for the VH category, but we soon discovered that some of the dijet combinations had unusually extreme values. Therefore, we decided to alter our selection criteria to see if we could pick up the correct jets. Instead of taking the highest $p_{T}$ jets, we selected for highest dijet $p_{T}$ pair. This improved our peak, but we still seem to be missing jets.
 \subsection{Maximum Likelihood Fits for Dijet Mass}
+We explored the possibility of using a Maximum Likelihood fit to narrow the signal peak.
 \section{VH Analysis Optimization 2 (for 8 TeV data)}
 \subsection{Introduction}
+After obtaining optimum values for the selection criteria in the VH category, we applied these categories to the full 8 TeV analysis on real data. We then re optimized the VH category based off of expected limits. 
 \subsection{Expected Limits Definition}
 \subsection{Selection Optimization}
+<Table with expected limits>
 \section{VH Analysis Optimization 3 (for 13 TeV simulated data)}
 \section{Background Fits involving Numeric Convolution}
 
