@@ -6,7 +6,7 @@
 \usepackage{colortbl}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.gif,.jpg}
-%\usepackage{tabu}
+%\usepackage{tabular}
   
 \title{$VH$, $H\rightarrow \mu \mu$, $V\rightarrow jj$ Studies}
 \author{Brendan Regnery, Darin Acosta, Justin Hugon}
@@ -203,7 +203,22 @@ a 95\% confidence level.  These expected limits include no systematic uncertaint
 
 \subsection{Selection Optimization}
 
-<Table with expected limits>
+%<Table with expected limits>
+
+\begin{table}[!hbtp]
+  \begin{center}
+    \caption{ \label{tab:ExpectedLimitsTable}
+        This Table contains the expected limits in the full analysis using the VBF category to search for only VBF events 
+	and the vH category to search for only vH events.
+    }
+    \begin{tabular}{lcc} \hline \hline
+         Category & Expected limit \\ \hline
+         VBF only & 42.5391  \\
+         vH only & 136.4062 \\
+     \hline \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
 \section{VH Analysis Optimization 3 (for 13 TeV simulated data)}
 
