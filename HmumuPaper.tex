@@ -8,7 +8,7 @@
 \DeclareGraphicsExtensions{.pdf,.png,.gif,.jpg}
 %\usepackage{tabular}
   
-\title{$VH$, $H\rightarrow \mu \mu$, $V\rightarrow jj$ Studies}
+\title{A Study to Enhance the Sensitivity for the Discovery of the Higgs Boson Coupling to Dimuons}
 \author{Brendan Regnery, Darin Acosta, Justin Hugon}
 \date{\today}
 \begin{document}
@@ -18,15 +18,93 @@
 
 The smallest Higgs coupling directly observable at the LHC is $H\rightarrow \mu \mu$. 
 An analysis, looking for this channel, has already been run on data received from the 8 TeV run of the LHC. 
-This analysis reported an observed limit of 12 times the standard model \cite{hmmPap} 
-we hope to improve upon this analysis for the next run of the LHC at 13 TeV \cite{hmmAN}. 
+This analysis reported an observed limit of 12 times the standard model \cite{hmumuPap} 
+we hope to improve upon this analysis for the next run of the LHC at 13 TeV \cite{AN2012_459}. 
 
 The current analysis optimized a category for the Vector Boson Fusion (VBF) channel and included, 
 but did not optimize, an associated production with a vector boson channel (VH). 
 In order to improve upon this analysis, We looked into optimizing the VH channel---where $H\rightarrow \mu \mu$ and $V\rightarrow jj$--- for 8 TeV data, 
-altering the background fitting in the current analysis, and creating an analysis with these changes to run on simulated 13 TeV data.
+altering the background fit in the current analysis, and creating an analysis with these changes to run on simulated 13 TeV data.
 
 \section{Data Samples and Trigger}
+
+The first step in optimizing our analysis uses simulated data. These are the methods that we used to obtain our simulated data.
+
+\subsection{Simulated Signal Samples}
+
+Our Gluon-fusion and VBF signal samples were produced using the \textsc{powheg-box} NLO generator~\cite{powheg1,powheg2,powheg3} 
+interfaced with \textsc{pythia} 6~\cite{pythia} for parton showering.
+For the associated production samples, we used the \textsc{herwig}++ event generator and 
+parton shower program~\cite{herwigpp}.  NLO corrections are calculated using the 
+POWHEG implementation built into \textsc{herwig}++. 
+In our associated production samples, the W or Z bosons were allowed to decay without restriction.
+Each signal sample contains 100k events.
+
+For gluon-fusion, VBF, and associated production, we used samples with $m_H =$ 125~$\textrm{GeV}/\textrm{c}^{2}$. 
+The names of the datasets are shown in Table \ref{tab:sigDatasets}
+
+\begin{table}[htb]
+\caption{Simulated signal dataset names used in the analysis.
+\label{tab:sigDatasets}
+}
+\small
+\begin{center}
+\begin{tabular}{ |p{12cm}|}
+\hline
+Signal Dataset Name \\
+\hline
+\hline
+/GluGlu\_HToMM\_M-125\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1/AODSIM \\
+\hline
+/VBF\_HToMM\_M-125\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1/AODSIM \\
+\hline
+/WH\_HToMuMu\_M-125\_8TeV-powheg-herwigpp/Summer12\_DR53X-PU\_S10\_START53\_V19-v1/AODSIM \\
+\hline
+/ZH\_HToMuMu\_M-125\_8TeV-powheg-herwigpp/Summer12\_DR53X-PU\_S10\_START53\_V19-v1/AODSIM \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% End Signal Samples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Background Samples
+
+\subsection{Simulated Background Samples}
+
+The simulated background samples used in the analysis are listed in 
+Table~\ref{tab:BGSamples8TeV}.
+
+\begin{table}[h]
+\begin{center}
+\caption{\label{tab:BGSamples8TeV} Background MC samples at $\sqrt{s}=8$ TeV}
+\begin{tabular}{|p{10cm}|c|c|c|c|} \hline
+Sample & Original  & $\sigma$ [pb] & Equivalent \\
+ &  \# Events &  &  Lumi [1/$fb$] \\
+\hline
+\hline
+/DYJetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph-tarball/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &	     30086987 &	  3503.71 &   8.6  \\
+\hline                                                                                                                                     
+/TTJets\_MassiveBinDECAY\_TuneZ2star\_8TeV-madgraph-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v3/AODSIM &  6921652 &	  225.197 &  30.7  \\
+\hline                                                                                                                                     
+% We always use the above madgraph sample because it generates DY + 2jets much better than this powheg sample
+%/DYToMuMu\_M-20\_CT10\_TuneZ2star\_v2\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM & 48179386 & 5745.25/3 &  25.2  \\
+%\hline                                                                                                                                     
+%/DYToTauTau\_M-20\_CT10\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &    3295238 &	5745.25/3 &   1.7  \\
+%\hline                                                                                                                                     
+/WW\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM & 	              5218045 &	   54.838 &  95.2  \\
+\hline                                                                                                                                     
+/WZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &	             10000283 &	    33.21 & 301    \\
+\hline                                                                                                                                     
+/ZZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM 	&  	              9799908 &    17.654 & 555	   \\
+\hline
+%/WJetsToLNu\_TuneZ2Star\_8TeV-madgraph-tarball/Summer12\_DR53X-PU\_S10\_START53\_V7A-v2/AODSIM &	     44371574 &   30400.0 &   1.5  \\ 
+%\hline
+%/QCD\_Pt\_20\_MuEnrichedPt\_15\_TuneZ2star \_8TeV\_pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v3/AODSIM & 20764602 &  134680   &  0.15 \\
+%\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \section{Muon and Jet Object Definitions}
 
@@ -61,7 +139,7 @@ MVA-based selection is applied to reject jets formed from pileup particles~\cite
 We began improving the $H \rightarrow \mu \mu$ analysis by creating and optimizing additional selection criteria in the VH category. 
 Since all of categories in the current analysis were looking at $H \rightarrow \mu \mu$, we kept the same dimuon selection for VH. 
 The current analysis selected jets with $p_{T}, \eta,$ and mass values expected in the VBF channel, but in VH the jets originated from the vector boson. 
-Therefore we altered the jet selection criteria in the VH category to specifically look for $V \rightarrow \j \j$.
+Therefore we altered the jet selection criteria in the VH category to specifically look for $V \rightarrow jj$.
 
 The biggest background contributors in the VH channel are Drell Yan ($DY$) and top quark decays ($t\overline{t}$), 
 so our ultimate goal, with the jet selection, is to optimize the VH signal over these two background contributors.
@@ -103,7 +181,7 @@ We predicted that our signal events should have a longer tail than the $DY$ even
 We began our optimization of the VH category by applying the VH selection criteria in an analysis on 8 TeV simulated data. 
 In order to determine how effective our selection was, we used a statistical significance estimate $\frac{S}{\sqrt{B}}$ 
 (Where $S$ is the signal and $B$ is the background). 
-This estimate is based off of <Blank> because <blank> therefore allowing us to estimate how large our signal is compared to the background. 
+This estimate is based off of Z-score and allows us to estimate how large our signal is compared to the background. 
 In between selections, we took the ratio $\frac{\frac{S_{1}}{S_{0}}}{\sqrt{\frac{B_{1}}{B_{0}}}}$ 
 (Where $S_{0}$ and $B_{0}$ are the signal and background events before the selection 
 and $S_{1}$ and $B_{1}$ are the signal and background events after the selection). 
@@ -121,12 +199,12 @@ was better than any of the higher limits.
 
 After applying a Jet $p_{T}$ of 30 GeV/c to the $VH$ category, we began investigating Jet $\eta$ using the jet $p_{T}$ limit as a precondition.  
 We found that an upper limit of 2.7 for $|\eta|$ was the best, with $\frac{S}{\sqrt{B}}$ = 1.044 when compared to an initial upper limit of 4.7. 
-Then we used the Dimuon selection, $\eta$ limit, and $p_{T}$ limit as preconditions for optimizing the Dijet mass cut (Figure ~1).
+Then we used the Dimuon selection, $\eta$ limit, and $p_{T}$ limit as preconditions for optimizing the Dijet mass cut (Figure \ref{fig:Mjj}).
 \begin{figure}[!hbtp]
 \begin{center}
     \includegraphics[width=0.49\textwidth]{images/Hist_jetMass.png}
     \includegraphics[width=0.49\textwidth]{images/Hist_jetEta.png}
-    \caption{ \label{fig:myfigurelabel}
+    \caption{ \label{fig:Mjj}
          a) This plot shows the 2 Jet invariant mass after the preconditions have been applied. b) This plot shows the $\eta$
 	 values after the Dimuon selection and Jet $p_{T}$ cut. The orange and light green events are the signal events and the rest others
 	 are background.
@@ -140,25 +218,25 @@ the Dimuon selection, the Jet $p_{T}$ cut, the Jet $\eta$ cut, and the Dijet mas
 
 After optimizing our basic selection criteria and determining our preconditions, 
 we optimized the selections on the transverse Angle Between the Higgs and vector boson ($\phi$), missing transverse Momentum and dimuon transverse momentum. 
-We found an upper limit of -0.95 for the $cos$ of the transverse angle between the Higgs and vector boson to be the best (Figure ~2). 
+We found an upper limit of -0.95 for the $cos$ of the transverse angle between the Higgs and vector boson to be the best (Figure \ref{fig:cosPhi}). 
 \begin{figure}[!hbtp]
 \begin{center}
     \includegraphics[width=0.49\textwidth]{images/Hist_MuMu2JetPhiBeforeCuts.png} %Redo this plot!!!!
     \includegraphics[width=0.49\textwidth]{images/Hist_MuMu2JetPhiZoomB4Cut.png}
-    \caption{ \label{fig:myfigurelabel}
+    \caption{ \label{fig:cosPhi}
          a) This plot shows the $cos(\phi)$ value after the preconditions have been applied. b) This plot is a close-up of plot a.
 	 The orange and light green events are the signal events and the rest others are background.
       }
 \end{center}
 \end{figure} 
-This cut has $\frac{S}{\sqrt{B}}$ = 1.18. For the missing transverse momentum we found an upper limit of 40 GeV/c to be the best (Figure ~3a).
+This cut has $\frac{S}{\sqrt{B}}$ = 1.18. For the missing transverse momentum we found an upper limit of 40 GeV/c to be the best (Figure \ref{fig:ptmiss}a).
 This cut has $\frac{S}{\sqrt{B}}$ = 1.12. Finally, we found a lower limit of 110 GeV/c to be the best for the dimuon transverse momentum selection 
-(Figure ~3b). This cut has $\frac{S}{\sqrt{B}}$ = 1.20.
+(Figure \ref{fig:ptmiss}b). This cut has $\frac{S}{\sqrt{B}}$ = 1.20.
 \begin{figure}[!hbtp]
 \begin{center}
     \includegraphics[width=0.49\textwidth]{images/Hist_PtMiss.png}
     \includegraphics[width=0.49\textwidth]{images/Hist_DiMuonPt.png}
-    \caption{ \label{fig:myfigurelabel}
+    \caption{ \label{fig:ptmiss}
          a) This plot shows the $p^{miss}_{T}$ values after the preconditions have been applied. b) This plot shows the dimuon $p_{T}$ values 
 	 after the preconditions have been applied. The orange and light green events are the signal events and the rest others are background.
       }
@@ -173,7 +251,17 @@ In the VBF category, selection took place on the two highest $p_{T}$ jets.
 Similarly, we started off using the two highest $p_{T}$ jets for the VH category, 
 but we soon discovered that some of the dijet combinations had unusually extreme values. 
 Therefore, we decided to alter our selection criteria to see if we could pick up the correct jets. 
-Instead of taking the highest $p_{T}$ jets, we selected for highest dijet $p_{T}$ pair. This improved our peak, but we still seem to be missing jets.
+Instead of taking the highest $p_{T}$ jets, we selected for highest dijet $p_{T}$ pair. This is shown 
+in figure \ref{fig:dijetSel}. This improved our peak, but we still seem to be missing jets.
+\begin{figure}[!hbtp]
+\begin{center}
+    \includegraphics[width=0.49\textwidth]{images/Hist_Reco2PlotsPt30Eta2.png}
+    \caption{ \label{fig:dijetSel}
+         This shows the dijet pair selection in $WH$ for the event pair with a mass closest to 80 (a flawed selection that 
+	 shows the best possible values), the event pair with the highest $p_{T}$, and the event pair created from the two highest $p_{T}$ jets.
+      }
+\end{center}
+\end{figure}
 
 \subsection{Maximum Likelihood Fits for Dijet Mass}
 
@@ -203,18 +291,25 @@ a 95\% confidence level.  These expected limits include no systematic uncertaint
 
 \subsection{Selection Optimization}
 
-%<Table with expected limits>
+The current analysis on 8 TeV data includes a un-optimized vH category. This category requires (after dimuon selection) 
+that the leading jet has $p_{T} >$ 40 GeV/c and that the sub-leading jet has $p_{T} >$ 30 GeV/c. In order for the new category to run
+on the full analysis, without significant alterations to the analysis, the jet $p_{T}$ values cannot change. Using only expected limit comparisons for 
+optimization, we found a lower limit of 40 GeV/c for leading jet $p_{T}$, a lower limit of 30 GeV/c for sub-leading jet $p_{T}$ an upper 
+limit of 40 GeV/c for $p_{T}^{miss}$, a lower limit of 110 GeV/c for dimuon $p_{T}$, and an upper limit of 2.7 for leading and sub-leading 
+jet $|\eta|$ to have the best expected limit value at 92.5781. The expected limit values are shown in table \ref{tab:ExpectedLimits}.
 
 \begin{table}[!hbtp]
   \begin{center}
-    \caption{ \label{tab:ExpectedLimitsTable}
-        This Table contains the expected limits in the full analysis using the VBF category to search for only VBF events 
-	and the vH category to search for only vH events.
+    \caption{ \label{tab:ExpectedLimits}
+        This Table is an optimization flow table of the vH Category with preconditions of leading jet $p_{T} >$ 40
+	GeV/c, sub-leading jet $p_{T} >$ 30 GeV/c, and $p_{T}^{miss} <$ 40 GeV/c.
     }
     \begin{tabular}{lcc} \hline \hline
-         Category & Expected limit \\ \hline
-         VBF only & 42.5391  \\
-         vH only & 136.4062 \\
+         Additional Selection & Expected limit \\ \hline
+         60 $GeV/c^{2} < M_{jj} <$ 110 $GeV/c^{2}$ & 96.0938  \\
+         Dimuon $p_{T} >$ 110 $GeV/c^{2}$ & 93.0469 \\
+	 Leading Jet $|\eta| <$ 2.7 & 93.0469 \\
+	 Sub-Leading Jet $|\eta| <$ 2.7 & 92.5781 \\
      \hline \hline
     \end{tabular}
   \end{center}
@@ -245,6 +340,46 @@ a 95\% confidence level.  These expected limits include no systematic uncertaint
 \bibitem{cls}
   A. L. Read, ``Presentation of search results: the CLs technique'', J. Phys. G 28 (2002) 2693,
   doi:10.1088/0954-3899/28/10/313.
+
+\bibitem{pythia} 
+  T.~Sjostrand, S.~Mrenna and P.~Z.~Skands,
+  ``PYTHIA 6.4 Physics and Manual,''
+  JHEP {\bf 0605}, 026 (2006)
+  [hep-ph/0603175].
+
+\bibitem{herwigpp} 
+  M.~Bahr, S.~Gieseke, M.~A.~Gigg, D.~Grellscheid, K.~Hamilton, O.~Latunde-Dada, S.~Platzer and P.~Richardson {\it et al.},
+  ``Herwig++ Physics and Manual,''
+  Eur.\ Phys.\ J.\ C {\bf 58}, 639 (2008)
+  [arXiv:0803.0883 [hep-ph]].
+
+\bibitem{powheg1} 
+  S.~Alioli, P.~Nason, C.~Oleari and E.~Re,
+  ``A general framework for implementing NLO calculations in shower Monte Carlo programs: the POWHEG BOX,''
+  JHEP {\bf 1006}, 043 (2010)
+  [arXiv:1002.2581 [hep-ph]].
+  %%CITATION = ARXIV:1002.2581;%%
+
+\bibitem{powheg2} 
+  S.~Alioli, P.~Nason, C.~Oleari and E.~Re,
+  ``NLO Higgs boson production via gluon fusion matched with shower in POWHEG,''
+  JHEP {\bf 0904}, 002 (2009)
+  [arXiv:0812.0578 [hep-ph]].
+  %%CITATION = ARXIV:0812.0578;%%
+
+\bibitem{powheg3} 
+  P.~Nason and C.~Oleari,
+  ``NLO Higgs boson production via vector-boson fusion matched with shower in POWHEG,''
+  JHEP {\bf 1002}, 037 (2010)
+  [arXiv:0911.5299 [hep-ph]].
+  %%CITATION = ARXIV:0911.5299;%%
+
+\bibitem{hmumuPap} 
+  CMS Collaboration [CMS Collaboration],
+  ``Search for the standard model Higgs boson in the dimuon decay channel in pp collisions at sqrt(s)= 7 and 8 TeV,''
+  CMS-PAS-HIG-13-007.
+  %%CITATION = CMS-PAS-HIG-13-007;%%
+  %11 citations counted in INSPIRE as of 03 Sep 2014
 
 \end{thebibliography}
 
