@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+ 
+\begin{document}
+
+\section{Muon and Jet Object Definitions}
+ 
+Events are required to pass a simulated \texttt{HLT\_IsoMu24\_eta2p1} trigger.
+They are also required to contain a pair of opposite-sign muons with $|\eta|<2.1$.
+A muon must be matched to the trigger (within $\Delta R = \sqrt{(\Delta \phi)^2+(\Delta \eta)^2}< 0.2$), 
+and have $p_T>25$\,GeV, while the other muon must have $p_T>15$\,GeV.
+Both muons must pass the ``tight'' muon ID requirements~\cite{AN2012_459}.
+as well as being isolated from other event activity.  Isolation is quantified using
+particle-flow (PF) relative isolation corrected for pileup using the ``$\delta \beta$''
+procedure~\cite{AN2012_459}.  Each muon is required to have a PF relative isolation value
+of less than 0.12.  Additionally, the 3D opening angle between the two muons must be
+smaller than $\pi-0.02$ radians, and events must contain a well reconstructed primary
+vertex.
+In the case where there are more than two muons in an event, all pairs passing the above
+requirements are considered, and will be referred to as separate events for the remainder
+of this note.  
+
+The simulated muon selection efficiency is corrected to match the data using 
+the ``tag-and-probe'' method, using scale factors.  The muon momentum resolution
+is also corrected to match the resolution of the MuScleFit-corrected data~\cite{AN2012_459}.
+
+Jets are reconstructed from PF candidates clustered with the anti-$k_t$ algorithm with
+a radius parameter of 0.5.  The $p_T$ and $|\eta|$ requirements of the jets are varied in
+the below optimization.  A loose jet ID is applied~\cite{AN2012_459}, and a further
+MVA-based selection is applied to reject jets formed from pileup particles~\cite{PUID}.
+
+\section{Expected Upper Limit Computation Procedure}
+
+Expected upper limits are computed using the asymptotic likelihood-ratio-based approach of 
+Ref.~\cite{stats}.  This is done with the CMS Higgs group ``combine'' tool using binned
+fits of parameterized signal and background shapes to the dimuon invariant mass 
+($m_{\mu\mu}$) data.  The signal shape is parameterized
+as the sum of two Gaussians, with parameters fixed to values fit to signal MC.
+The background shape is a Breit--Wigner plus $1/m_{\mu\mu}^2$ term, both multiplied
+by an exponential.  The Breit-Wigner mass and width are pre-fit to Z-peak data and fixed.
+The expected limit is computed
+using background shapes fit to 19.7\,fb$^{-1}$ of 8\,TeV data in each category,
+and assuming no Higgs signal (they are background-only expected limits).  The upper
+limits are presented in terms of the $\mathrm{CL_s}$ criterion~\cite{cls}, and are computed for 
+a 95\% confidence level.  These expected limits include no systematic uncertainties.
+
+\begin{thebibliography}{9}
+
+\bibitem{AN2012_459}
+  Acosta, D., et. al.,
+  ``Search for standard model Higgs boson production in the $\mu^+\mu^-$ final state with the CMS experiment in pp collisions at $\sqrt{s}=7$ and 8\, TeV'',
+  CMS Analysis Note AN-12459,
+  2014.
+
+\bibitem{PUID}
+  CMS Collaboration, ``Pileup Jet Identification'', 
+  CMS Physics Analysis Summary CMS-PAS-JME-13-005, 
+  2013.
+
+\bibitem{stats}
+  ATLAS and CMS Collaborations, and LHC Higgs Combination Group, ``Procedure for
+  the LHC Higgs boson search combination in summer 2011'', 
+  CMS-NOTE-2011/005 ATL-PHYS-PUB-2011-011, 2011.
+
+\bibitem{cls}
+  A. L. Read, ``Presentation of search results: the CLs technique'', J. Phys. G 28 (2002) 2693,
+  doi:10.1088/0954-3899/28/10/313.
+
+\end{thebibliography}
+ 
+\end{document}

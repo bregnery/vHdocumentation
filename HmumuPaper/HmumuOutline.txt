@@ -1,0 +1,29 @@
+
+-----------------------------------------------------------------------------
+------ Outline for Higgs to Dimuons with Associated Production Paper --------
+----------------- Brendan Regnery, Darin Acosta, Justin Hugon ---------------
+-----------------------------------------------------------------------------
+
+I.   Introduction
+II.  Toy Analysis
+	1. Methods for Psuedo data creation
+	2. S/sqrt(B) -Significance estimate
+	3. Basic Jet Selection Criteria
+		a. Jet Eta
+		b. Leading and sub-leading jet Pt
+	4. Dijet Invariant Mass
+	5. Transverse Angle between Higgs and vector boson
+	6. Missing Transverse Momentum
+	7. Dimuon Transverse Momentum
+	8. Advanced Jet Selection
+		a. Highest dijet Pt Pair
+		b. Maximum liklihood fitting
+III. 7 TeV Analysis
+	1. Expected limits
+	2. Basic Jet Selection 
+		a. Jet Eta
+		b. Leading and sub-leading jet Pt
+	3. Dijet Invariant Mass
+	4. Missing Transverse Momentum
+	5. Dimuon Transverse Momentum
+IV.  Background Fits involving Numeric Convolution

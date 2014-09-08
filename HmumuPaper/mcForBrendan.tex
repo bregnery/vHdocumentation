@@ -1,0 +1,80 @@
+\subsection{Simulated Signal Samples}
+
+Gluon-fusion and VBF signal samples were produced using the \textsc{powheg-box} NLO generator~\cite{powheg} 
+interfaced with \textsc{pythia} 6~\cite{pythia} for parton showering.
+For the associated production samples, the \textsc{herwig}++ event generator and 
+parton shower program~\cite{herwigpp} was used.  NLO corrections are calculated using the 
+POWHEG implementation built into \textsc{herwig}++. 
+In the associated production samples, the W or Z bosons were allowed to decay without restriction.
+Each signal sample contains 100k events.
+
+For gluon-fusion and VBF, samples with
+$m_H =$ \{115, 120, 125, 130, 135, 140, 145, 150, 155\}~\GeVcc 
+were used, while for associated production, only samples with 
+$m_H =$ \{115, 125, 135, 145, 155\}~\GeVcc
+were used.  The names of the datasets are shown in Table \ref{tab:sigDatasets}
+
+\begin{table}[htb]
+\caption{Simulated signal dataset names used in the analysis. The XXX is a placeholder
+for the generated Higgs mass.
+\label{tab:sigDatasets}
+}
+\small
+\begin{center}
+\begin{tabular}{ |p{12cm}|}
+\hline
+Signal Dataset Name \\
+\hline
+\hline
+/GluGlu\_HToMM\_M-XXX\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1/AODSIM \\
+\hline
+/VBF\_HToMM\_M-XXX\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1/AODSIM \\
+\hline
+/WH\_HToMuMu\_M-XXX\_8TeV-powheg-herwigpp/Summer12\_DR53X-PU\_S10\_START53\_V19-v1/AODSIM \\
+\hline
+/ZH\_HToMuMu\_M-XXX\_8TeV-powheg-herwigpp/Summer12\_DR53X-PU\_S10\_START53\_V19-v1/AODSIM \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% End Signal Samples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Background Samples
+
+\subsection{Simulated Background Samples}
+
+The simulated background samples used in the analysis are listed in 
+Table~\ref{tab:BGSamples8TeV}.
+
+\begin{table}[h]
+\begin{center}
+\caption{\label{tab:BGSamples8TeV} Background MC samples at $\sqrt{s}=8$ TeV}
+\begin{tabular}{|p{10cm}|c|c|c|c|} \hline
+Sample & Original  & $\sigma$ [pb] & Equivalent \\
+ &  \# Events &  &  Lumi [1/\fb] \\
+\hline
+\hline
+/DYJetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph-tarball/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &	     30086987 &	  3503.71 &   8.6  \\
+\hline                                                                                                                                     
+/TTJets\_MassiveBinDECAY\_TuneZ2star\_8TeV-madgraph-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v3/AODSIM &  6921652 &	  225.197 &  30.7  \\
+\hline                                                                                                                                     
+% We always use the above madgraph sample because it generates DY + 2jets much better than this powheg sample
+%/DYToMuMu\_M-20\_CT10\_TuneZ2star\_v2\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM & 48179386 & 5745.25/3 &  25.2  \\
+%\hline                                                                                                                                     
+/DYToTauTau\_M-20\_CT10\_TuneZ2star\_8TeV-powheg-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &    3295238 &	5745.25/3 &   1.7  \\
+\hline                                                                                                                                     
+/WW\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM & 	              5218045 &	   54.838 &  95.2  \\
+\hline                                                                                                                                     
+/WZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM &	             10000283 &	    33.21 & 301    \\
+\hline                                                                                                                                     
+/ZZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1/AODSIM 	&  	              9799908 &    17.654 & 555	   \\
+\hline
+/WJetsToLNu\_TuneZ2Star\_8TeV-madgraph-tarball/Summer12\_DR53X-PU\_S10\_START53\_V7A-v2/AODSIM &	     44371574 &   30400.0 &   1.5  \\ 
+\hline
+/QCD\_Pt\_20\_MuEnrichedPt\_15\_TuneZ2star \_8TeV\_pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v3/AODSIM & 20764602 &  134680   &  0.15 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
