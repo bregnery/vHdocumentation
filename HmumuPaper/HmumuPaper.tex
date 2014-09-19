@@ -17,13 +17,13 @@
 \section{Introduction}
 
 The smallest Higgs coupling directly observable at the LHC is $H\rightarrow \mu \mu$. 
-An analysis, looking for this channel, has already been run on data received from the 8 TeV run of the LHC. 
-This analysis reported an observed limit of 12 times the standard model \cite{hmumuPap} 
+A search for $H\rightarrow \mu \mu$ has already been run on data received from the 7 and 8 TeV runs of the LHC. 
+This baseline analysis reported an observed limit of 12 times the standard model \cite{hmumuPap} 
 we hope to improve upon this analysis for the next run of the LHC at 13 TeV \cite{AN2012_459}. 
 
-The current analysis optimized a category for the Vector Boson Fusion (VBF) channel and included, 
-but did not optimize, an associated production with a vector boson channel (VH). 
-In order to improve upon this analysis, we looked into optimizing the VH channel (where $H\rightarrow \mu \mu$ and $V\rightarrow jj$) for 8 TeV data, 
+The baseline analysis optimized a category for the Gluon Fusion (GF) and Vector Boson Fusion (VBF) production modes and included 
+a 2 Jet Loose category an associated production with a vector boson channel (VH). 
+In order to improve upon the previous analysis, we looked into optimizing the VH channel (where $H\rightarrow \mu \mu$ and $V\rightarrow jj$) for 8 TeV data, 
 altering the background fit in the current analysis, and creating an analysis with these changes to run on simulated 13 TeV data.
 
 \section{Data Samples}
@@ -32,7 +32,7 @@ Our first analysis uses simulated data. These are the methods that we used to ob
 
 \subsection{Simulated Signal Samples}
 
-Our Gluon-fusion and VBF signal samples were produced using the \textsc{powheg-box} NLO generator~\cite{powheg1,powheg2,powheg3} 
+Our GF and VBF signal samples were produced using the \textsc{powheg-box} NLO generator~\cite{powheg1,powheg2,powheg3} 
 interfaced with \textsc{pythia} 6~\cite{pythia} for parton showering.
 For the associated production samples, we used the \textsc{herwig}++ event generator and 
 parton shower program~\cite{herwigpp}.  NLO corrections are calculated using the 
@@ -41,7 +41,7 @@ In our associated production samples, the W or Z bosons were allowed to decay wi
 Each signal sample contains 100k events.
 
 For gluon-fusion, VBF, and associated production, we used samples with $m_H =$ 125~$\textrm{GeV}/\textrm{c}^{2}$. 
-The names of the datasets are shown in Table \ref{tab:sigDatasets}
+The names of the centrally produced datasets we used are shown in Table \ref{tab:sigDatasets}
 
 \begin{table}[htb]
 \caption{Simulated signal dataset names used in the analysis.
@@ -103,7 +103,7 @@ In all of our analyses, events are also required to contain a pair of opposite-s
 A muon must be matched to the trigger (within $\Delta R = \sqrt{(\Delta \phi)^2+(\Delta \eta)^2}< 0.2$), 
 and have $p_T>25$\,GeV, while the other muon must have $p_T>15$\,GeV.
 Both muons must pass the ``tight'' muon ID requirements~\cite{AN2012_459}.
-as well as being isolated from other event activity.  We quantified Isolation using
+as well as being isolated from other event activity.  We quantified isolation using
 particle-flow (PF) relative isolation corrected for pileup using the ``$\delta \beta$''
 procedure~\cite{AN2012_459}.  Each muon is required to have a PF relative isolation value
 of less than 0.12.  Additionally, the 3D opening angle between the two muons must be
