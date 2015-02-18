@@ -13,12 +13,26 @@
 \date{\today}
 \begin{document}
 \maketitle
- 
+
+\section{Abstract}
+
+We present our optimized selection criteria for the predicted Higgs coupling to dimuons with associated 
+production of a vector boson. On July 4th 2012, the discovery of the Higgs boson was announced by the 
+ATLAS and Compact Muon Solenoid (CMS) collaborations in data from the Large Hadron Collider (LHC) at the 
+European Organization for Nuclear Research (CERN). Researchers must search for the rare decay modes of 
+the Higgs, as predicted in the Standard Model of Particle Physics, to confirm its predicted couplings to 
+mass. We are contributing to that process by developing a dedicated search strategy for the Higgs decay to 
+dimuons, with associated production of a W or Z vector boson detected in the dijet final state.  In order 
+to optimize the search for this channel, we improved upon the published CMS search for the Higgs decay 
+to dimuons by adding additional discrimination criteria: invariant mass of the dijet decay of the W or 
+Z vector boson, dimuon transverse momentum, the angle between the dimuon and dijet systems in the transverse 
+plane, and missing transverse momentum. We optimized these criteria on 8 TeV simulated data and CMS data 
+to improve the sensitivity for discovery of this decay channel. 
+
 \section{Introduction}
 
-On July 4, 2012, the Higgs boson was discovered by the Compact Muon Solenoid (CMS) and ATLAS experiments 
-at the Large Hadron Collider (LHC) in Geneva, Switzerland \cite{HiggsDisc}. The University of Florida is
-a participant in the CMS experiment and helped analyze data that led to this discovery.
+On July 4, 2012, the discovery of the Higgs boson was announced by the Compact Muon Solenoid (CMS) and ATLAS collaborations 
+at the Large Hadron Collider (LHC) in Geneva, Switzerland \cite{HiggsDisc}.
 The Higgs boson is a particle of the Higgs field, which gives mass to matter. Without the Higgs boson, 
 the Standard Model (a model of the elementary particles) cannot explain why particles have mass. 
 The Higgs boson was first discovered coupling to massive particles (e.g. the W and Z bosons), 
@@ -56,7 +70,7 @@ POWHEG implementation built into \textsc{herwig}++.
 In our associated production samples, the W or Z bosons were allowed to decay without restriction.
 Each signal sample contains 100,000 events.
 
-For gluon-fusion, VBF, and associated production, we used samples with the mass of the Higgs boson, $m_H$, equal to 125~$\textrm{GeV}/\textrm{c}^{2}$. 
+For GF, VBF, and VH, we used samples with the mass of the Higgs boson, $m_H =$ 125~$\textrm{GeV}/\textrm{c}^{2}$. 
 The names of the centrally produced datasets we used are shown in Table \ref{tab:sigDatasets}
 
 \begin{table}[htb]
@@ -115,29 +129,29 @@ Sample & Original  & $\sigma$ [pb] & Equivalent \\
 
 \subsection{Muon and Jet Object Definitions \label{MuonDef}}
 
-In our analysis on simulated data, events are required to pass a simulated \texttt{HLT\_IsoMu24\_eta2p1} trigger.
-In all of our analyses, events are also required to contain a pair of opposite-sign muons with $|\eta|<2.1$.
-A muon must be matched to the trigger (within $\Delta R = \sqrt{(\Delta \phi)^2+(\Delta \eta)^2}< 0.2$), 
-and have $p_T>25$\,GeV, while the other muon must have $p_T>15$\,GeV.
-Both muons must pass the ``tight'' muon ID requirements~\cite{AN2012_459}.
-as well as being isolated from other event activity.  We quantified isolation using
-particle-flow (PF) relative isolation corrected for pileup using the ``$\delta \beta$''
-procedure~\cite{AN2012_459}.  Each muon is required to have a PF relative isolation value
-of less than 0.12.  Additionally, the 3D opening angle between the two muons must be
-smaller than $\pi-0.02$ radians, and events must contain a well reconstructed primary
+In our analysis on simulated data, events were required to pass a simulated \texttt{HLT\_IsoMu24\_eta2p1} trigger.
+In all of our analyses, events were also required to contain a pair of opposite-sign muons with $|\eta|<2.1$.
+One muon had to be matched to the trigger (within $\Delta R = \sqrt{(\Delta \phi)^2+(\Delta \eta)^2}< 0.2$), 
+and have $p_T>25$\,GeV, while the other muon needed $p_T>15$\,GeV.
+Both muons had to pass the ``tight'' muon ID requirements~\cite{AN2012_459},
+and had to be isolated from other event activity.  We quantified isolation using
+particle-flow (PF) relative isolation corrected for pileup with the ``$\delta \beta$''
+procedure~\cite{AN2012_459}.  Each muon was required to have a PF relative isolation value
+of less than 0.12.  Additionally, the 3D opening angle between the two muons had to be
+smaller than $\pi-0.02$ radians, and events had to contain a well reconstructed primary
 vertex.
-In the case where there are more than two muons in an event, all pairs passing the above
-requirements are considered, and will be referred to as separate events for the remainder
-of this note.  
+In the case where there were more than two muons in an event, all pairs passing the above
+requirements were considered, and will be referred to as separate events for the remainder
+of this paper.  
 
-The simulated muon selection efficiency is corrected to match the data using 
-the ``tag-and-probe'' method, using scale factors.  The muon momentum resolution
-is also corrected to match the resolution of the MuScleFit-corrected data~\cite{AN2012_459}.
+The simulated muon selection efficiency was corrected to match the data using 
+scale factors in the ``tag-and-probe'' method.  The muon momentum resolution
+was also corrected to match the resolution of the MuScleFit-corrected data~\cite{AN2012_459}.
 
-Jets are reconstructed from PF candidates clustered with the anti-$k_t$ algorithm with
-a radius parameter of 0.5.  The $p_T$ and $|\eta|$ requirements of the jets are varied in
-the below optimization.  A loose jet ID is applied~\cite{AN2012_459}, and a further
-MVA-based selection is applied to reject jets formed from pileup particles~\cite{PUID}.
+Jets were reconstructed from PF candidates clustered with the anti-$k_t$ algorithm containing
+a radius parameter of 0.5.  The $p_T$ and $|\eta|$ requirements of the jets were varied in
+the below optimization.  A loose jet ID was applied~\cite{AN2012_459}, and a further
+MVA-based selection was applied to reject jets formed from pileup particles~\cite{PUID}.
 
 \subsection{VH Selection Criteria}
 
@@ -152,19 +166,19 @@ Comparatively, jets in VH are predicted to have a lower $p_{T}$ and a lower $|\e
 Therefore, we decided to investigate lowering our $p_{t}$ and $|\eta|$ criteria. After adding these basic selection criteria,
 we began investigating more advanced selection criteria
 
-One of our additional selection criteria that selects against events not containing a Z or W boson is our dijet Invariant mass cut. 
+One of our additional selection criteria, that discriminates against events not containing a vector boson, is our dijet Invariant mass cut. 
 Since $V \rightarrow jj$, we expect that the dijet mass should be similar to the mass of the vector boson. 
 
 The biggest background contributors in the VH category are Drell Yan ($DY$) and top quark decays ($t\overline{t}$), 
 so our ultimate goal, with the jet selection, is to optimize the VH signal over these two background contributors.
 
 This next cut is specifically aimed at selecting against $t\overline{t}$.
-Since we are looking at associated production of a Higgs and a Vector boson, we expect that they will 
+Since we are looking at associated production of a Higgs and a vector boson, we expect that they will 
 travel in opposite directions within the transverse plane of the detector. 
 Therefore we decided to create a criterion based on the angle between $H$ and $V$. 
 In order to accomplish this, we calculated the direction that $H$ was traveling based off of the dimuon pair 
 and we calculated the direction that the $V$ was traveling based off of the dijet pair. 
-The idea of using jet and dimuon $p_{T}$s lead us to another very similar cut that also selects against $t\overline{t}$ 
+The idea of using jet and dimuon $p_{T}$ values lead us to another very similar cut that also selects against $t\overline{t}$ 
 
 In the detector, the sum of the transverse momentum of all of the particles should be zero, 
 but, due to measurement uncertainties and undetected particles, this is rarely the case. 
@@ -172,14 +186,14 @@ $t\overline{t}$ is more likely to have a larger amount of missing transverse mom
 In the baseline analysis all events with $p_{T}^{miss} >$ 40 GeV/c are excluded.
 After selecting against $t\overline{t}$ events, we decided we needed additional selection criteria against $DY$.
 
-The Transverse Dimuon Momentum ($p_{T}^{\mu \mu}$) is a vector sum of the individual muon $p_{T}$s. 
+The transverse dimuon momentum ($p_{T}^{\mu \mu}$) is a vector sum of the individual muon $p_{T}$s. 
 We predicted that our signal events should have a longer tail than the $DY$ events.
 
-\subsection{Statistical Methonds}
+\subsection{Statistical Methods}
 
 \subsubsection{Statistical Significance Estimate}
 
-In order to determine how effective our selection was, we used a statistical significance estimate 
+In order to determine how effective our selections were, we used a statistical significance estimate 
 	\[\frac{S}{\sqrt{B}} \] 
 (Where $S$ is the number of signal events and $B$ is the number of background events). 
 This estimates the Z-score of the signal over the background allowing us to estimate how large our signal is compared to the background. 
@@ -191,24 +205,22 @@ A ratio value larger than one signifies an improvement in the signal relative to
 
 \subsubsection{Expected Limits Definition}
 
-Expected upper limits are computed using the asymptotic likelihood-ratio-based approach of 
-Ref.~\cite{stats}.  This is done with the CMS Higgs group ``combine'' tool using binned
+Expected upper limits were computed using the asymptotic likelihood-ratio-based approach of 
+Ref.~\cite{stats}.  This was done with the CMS Higgs group ``combine'' tool using binned
 fits of parameterized signal and background shapes to the dimuon invariant mass 
-($m_{\mu\mu}$) data.  The signal shape is parameterized
-as the sum of two Gaussians, with parameters fixed to values fit to signal MC.
-The background shape is a Breit--Wigner plus $1/m_{\mu\mu}^2$ term, both multiplied
-by an exponential.  The Breit-Wigner mass and width are pre-fit to Z-peak data and fixed.
-The expected limit is computed
+($m_{\mu\mu}$) data.  The signal shape was parameterized
+as the sum of two Gaussians, with parameters fixed to values fit to signal Monte Carlo (MC).
+The background shape was a Breit--Wigner plus $1/m_{\mu\mu}^2$ term, both multiplied
+by an exponential.  The Breit-Wigner mass and width were pre-fit to Z-peak data and fixed.
+The expected limit was computed
 using background shapes fit to 19.7\,fb$^{-1}$ of 8\,TeV data in each category,
 and assuming no Higgs signal (they are background-only expected limits).  The upper
-limits are presented in terms of the $\mathrm{CL_s}$ criterion~\cite{cls}, and are computed for 
+limits were presented in terms of the $\mathrm{CL_s}$ criterion~\cite{cls}, and are computed for 
 a 95\% confidence level.  These expected limits include no systematic uncertainties.
 
 \section{Results}
 
 \subsection{VH Analysis Optimization 1 (for 8 TeV Simulated data)}
-
-\subsubsection{Selection Optimization}
 
 We began our optimization of the VH category by applying the VH selection criteria in an analysis on 8 TeV simulated data. 
 
@@ -216,22 +228,23 @@ In our selection optimization, all iterations of the analysis included a VH cate
 From here, we optimized the basic jet selection criteria on the leading and sub-leading jets. 
 In our optimization of the jet $p_{T}$ we found that selection of $p_{T}>$ 25 GeV/c was the best. 
 This selection has $\frac{S}{\sqrt{B}}$ = 1.054 when compared to an initial jet $p_{T}$ selection of $p_{T}>$ 20 GeV/c. 
-However, due to an expected increase in detector uncertainties as the collision energy increases to 13 TeV, 
+However, due to detector uncertainties, 
 we decided that the leading and sub-leading jet $p_{T}$ selection had to be no less than $p_{T}>$ 30 GeV/c. 
 We found that this selection, which has $\frac{S}{\sqrt{B}}$ = 0.92 when compared to the initial jet $p_{T}$ selection of $p_{T}>$ 20 GeV/c, 
 was better than any of the higher selections. 
 
-After applying a Jet $p_{T}$ cut of 30 GeV/c to the $VH$ category, we began investigating Jet $|\eta|$ using the jet $p_{T}$ selection as a precondition.  
+After applying a jet $p_{T}$ cut of 30 GeV/c to the VH category, 
+we began investigating Jet $|\eta|$ using the jet $p_{T}$ selection as a precondition.  
 We found that a selection of $|\eta|<$ 2.7 for was the best, with $\frac{S}{\sqrt{B}}$ = 1.044 when compared to an initial selection of $|\eta|<$ 4.7. 
-Then we used the Dimuon selection, $|\eta|$ selection, and $p_{T}$ selection as preconditions for optimizing the Dijet mass ($M_{jj}$) cut. 
-Figure \ref{fig:Mjj} shows the Dijet mass and $|\eta|$ distributions that we applied the selection criteria to.
+Then we used the dimuon selection, $|\eta|$ selection, and $p_{T}$ selection as preconditions for optimizing the dijet mass ($M_{jj}$) cut. 
+Figure \ref{fig:Mjj} shows the dijet mass and $|\eta|$ distributions that we applied the selection criteria to.
 \begin{figure}[!hbtp]
 \begin{center}
     \includegraphics[width=0.49\textwidth]{images/Hist_jetMass.png}
     \includegraphics[width=0.49\textwidth]{images/Hist_jetEta.png}
     \caption{ \label{fig:Mjj}
          a) This plot shows the 2 Jet invariant mass after the preconditions have been applied. b) This plot shows the $|\eta|$
-	 values after the Dimuon selection and Jet $p_{T}$ selection. The orange and light green events are the signal events and the other colors
+	 values after the dimuon selection and jet $p_{T}$ selection. The orange and light green events are the signal events and the other colors
 	 are background.
       }
 \end{center}
@@ -239,11 +252,11 @@ Figure \ref{fig:Mjj} shows the Dijet mass and $|\eta|$ distributions that we app
 For this criteria, we found that a mass selection of 60 GeV/c$^{2}< M_{jj}<$ 110 GeV/c$^{2}$ was the best
 because it encompassed both the W peak and the Z peak. 
 This cut has $\frac{S}{\sqrt{B}}$ = 1.24. For the rest of the selection criteria optimization we used only the following preconditions: 
-the Dimuon selection, the Jet $p_{T}$ cut, the Jet $\eta$ cut, and the Dijet mass cut.
+the dimuon selection, the jet $p_{T}$ cut, the jet $\eta$ cut, and the dijet mass cut.
 
 After optimizing our basic selection criteria and determining our preconditions, 
 we optimized the selections on the transverse Angle Between the Higgs and vector boson ($\Delta\phi_{\mu\mu jj}$), 
-missing transverse Momentum and dimuon transverse momentum. 
+missing transverse momentum and dimuon transverse momentum. 
 We found a selection of $\cos(\Delta\phi_{\mu\mu jj})<$ -0.95 to be the best (Figure \ref{fig:cosPhi}).
 \begin{figure}[!hbtp]
 \begin{center}
@@ -273,29 +286,10 @@ When we combine all of the selection criteria, $\frac{S}{\sqrt{B}} $ = 1.82.
 
 %<Table with S/sqrtB ratio values>
 
-\subsubsection{Choosing Correct Dijet Pair}
-
-In the VBF category, selection took place on the two highest $p_{T}$ jets. 
-Similarly, we started off using the two highest $p_{T}$ jets for the VH category, 
-but we soon discovered that some of the dijet combinations had unusually extreme values. 
-Therefore, we decided to alter our selection criteria to see if we could pick up the correct jets. 
-Instead of taking the highest $p_{T}$ jets, we selected for the highest dijet $p_{T}$ pair. This is shown 
-in figure \ref{fig:dijetSel}. This improved our peak, but we still seem to be missing jets.
-\begin{figure}[!hbtp]
-\begin{center}
-    \includegraphics[width=0.49\textwidth]{images/Hist_Reco2PlotsPt30Eta2.png}
-    \caption{ \label{fig:dijetSel}
-         This shows the dijet pair selection in $WH$ for the event pair with a mass closest to 80 (a flawed selection that 
-	 shows the best possible values; represented by the green line), the event pair with the highest $p_{T}$ (black line), 
-	 and the event pair created from the two highest $p_{T}$ jets (red line).
-      }
-\end{center}
-\end{figure}
-
 \subsection{VH Analysis Optimization 2 (for 8 TeV data)}
 
 After obtaining optimum values for the selection criteria in the VH category, we applied these categories to the full 8 TeV analysis on real data. 
-We then re-optimized the VH category based off of expected limits. 
+We then re-optimized the VH category based on expected limits. 
 
 The baseline analysis on 8 TeV data includes a 2-jet category. This category requires (after dimuon selection) 
 that the leading jet has $p_{T} >$ 40 GeV/c, the sub-leading jet has $p_{T} >$ 30 GeV/c, and that the event has $p_{T}^{miss} <$ 40 GeV/c. 
@@ -325,7 +319,36 @@ The expected limit values are shown in table \ref{tab:ExpectedLimits}.
 
 \section{Discussion}
 
+By completing this study of the VH production mode, we were able optimize a previously unstudied category in the $H\rightarrow \mu\mu$ analysis.
+Our results made small improvements on the 2-jet loose category, with a new expected limit of 92.5781 compared to 96.0938.
+However, the LHC is about to begin running 13 TeV---an even higher collision energy. 
+This will increase the cross section of the VH production mode. 
+Therefore, the results of optimization can be slightly altered for 13 TeV and should result in a larger 
+expected limit improvement and contribute to future studies of $H\rightarrow\mu\mu$.
+We also experienced some difficulty with our dijet pair selection.
 
+During the VH production, numerous jets can be produced due to other particle interactions.
+In the VBF category, selection took place on the two highest $p_{T}$ jets. 
+Similarly, we started off using the two highest $p_{T}$ jets for the VH category, 
+but we soon discovered that some of the dijet combinations had unusually extreme values. 
+This is most likely because the jets were the result of other particle decays in the detector.
+Therefore, we decided to alter our dijet pairs, to see if we could obtain the correct pair. 
+Instead of taking the highest $p_{T}$ jets, we selected for the highest dijet $p_{T}$ pair. This is shown 
+in figure \ref{fig:dijetSel}. Our peak improved, but we still seem to be missing jets.
+We hope to incorporate an altered jet selection into the VH category for the 13 TeV $H\rightarrow\mu\mu$ analysis.
+\begin{figure}[!hbtp]
+\begin{center}
+    \includegraphics[width=0.49\textwidth]{images/Hist_Reco2PlotsPt30Eta2.png}
+    \caption{ \label{fig:dijetSel}
+         This shows the dijet pair selection in WH for the event pair with a mass closest to 80 (a flawed selection that 
+	 shows the best possible values; represented by the green line), the event pair with the highest $p_{T}$ (black line), 
+	 and the event pair created from the two highest $p_{T}$ jets (red line).
+      }
+\end{center}
+\end{figure}
+
+We hope to use the results from this study to run a comprehensive analysis of $H\rightarrow\mu\mu$ on data recieved
+from the 13 TeV run of the LHC.
 
 \begin{thebibliography}{9}
 
